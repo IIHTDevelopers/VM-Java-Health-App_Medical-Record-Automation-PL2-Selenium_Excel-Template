@@ -126,7 +126,7 @@ public class medicalRecord_page extends StartupPage {
 	}
 
 	/**
-	 * @Test4.2 @Test7.2 @Test11.1 @Test14.1 @Test15.1 about this method
+	 * @Test4.2 @Test7.2 @Test9.1 @Test12.1 about this method
 	 * applyDateFilter()
 	 * 
 	 * @param : String, String
@@ -158,7 +158,7 @@ public class medicalRecord_page extends StartupPage {
 	}
 
 	/**
-	 * @Test5 @Test6.1 @Test7.1 @Test8.1 @Test9.1 about this method
+	 * @Test5 @Test6.1 @Test7.1 about this method
 	 *        verifyUrlContains()
 	 * 
 	 * @param buttonName      : String - The name of the button that will be clicked
@@ -197,26 +197,9 @@ public class medicalRecord_page extends StartupPage {
 		
 	}
 
-	/**
-	 * @Test8.2 about this method clickDateRangeDropdownAndSelect()
-	 * 
-	 * @param valueToSelect : String - The text of the value to select from the
-	 *                      dropdown.
-	 * @description : This method clicks on the date range button, selects a value
-	 *              by its text, and verifies if the selection was successful.
-	 * @return : boolean - true if the intended value is successfully selected,
-	 *         otherwise false.
-	 * @throws : Exception - if there is an issue finding the dropdown or its
-	 *           values.
-	 * @author : YAKSHA
-	 */
-	public boolean clickDateRangeDropdownAndSelect(String valueToSelect) throws Exception {
-		return false;
-		
-	}
 
 	/**
-	 * @Test7.3 @Test8.3 about this method verifyResultsAppointmentDateFallsWithin()
+	 * @Test7.3 about this method verifyResultsAppointmentDateFallsWithin()
 	 * 
 	 * @param fromDate : String - The starting date of the range in "dd-MM-yyyy"
 	 *                 format.
@@ -234,24 +217,9 @@ public class medicalRecord_page extends StartupPage {
 		return false;
 	}
 
-	/**
-	 * @Test9.2 about this method applyDoctorFilterAndVerifyResults()
-	 * 
-	 * @param doctorName : String - Name of the Doctor to filter by.
-	 * @description : This method applies a doctor filter by the specified name and
-	 *              verifies if the results contain only the selected doctor.
-	 * @return : boolean - true if all results contain the selected doctor's name,
-	 *         otherwise false.
-	 * @throws : Exception - if there is an issue finding the dropdown or its
-	 *           values.
-	 * @author : YAKSHA
-	 */
-	public boolean applyDoctorFilterAndVerifyResults(String doctorName) throws Exception {
-		return false;
-	}
 
 	/**
-	 * @Test10 about this method applyDepartmentFilterAndVerifyResults()
+	 * @Test8 about this method applyDepartmentFilterAndVerifyResults()
 	 * 
 	 * @param departmentName - The name of the department to filter by.
 	 * @description : This method applies a department filter by department name and
@@ -268,7 +236,7 @@ public class medicalRecord_page extends StartupPage {
 	}
 
 	/**
-	 * @Test11.2 about this method scrollAllTheWayDown()
+	 * @Test9.2 about this method scrollAllTheWayDown()
 	 * 
 	 * @param : null
 	 * @description : This method vertically scrolls the screen to the bottom
@@ -283,7 +251,7 @@ public class medicalRecord_page extends StartupPage {
 	}
 
 	/**
-	 * @Test11.4 @Test11.6 about this method clickButtonByText()
+	 * @Test9.4 @Test9.6 about this method clickButtonByText()
 	 * 
 	 * @param buttonText : String - The text of the button to be clicked
 	 * @description : This method locates a button using its text and performs a
@@ -302,7 +270,7 @@ public class medicalRecord_page extends StartupPage {
 	}
 
 	/**
-	 * @Test11.3 @Test11.5 about this method verifyCurrentPageIs()
+	 * @Test9.3 @Test9.5 about this method verifyCurrentPageIs()
 	 * 
 	 * @param expectedCurrentPage : String - The expected text that should be
 	 *                            present on the current page to verify its
@@ -323,7 +291,7 @@ public class medicalRecord_page extends StartupPage {
 	}
 
 	/**
-	 * @Test12 about this method verifyDataIsFilteredAccordingToSelectedDiagnosis()
+	 * @Test10 about this method verifyDataIsFilteredAccordingToSelectedDiagnosis()
 	 * 
 	 * @param diagCode               - The diagnosis code to filter the data.
 	 * @param expectedFinalDiagvalue - The expected final diagnosis value to verify
@@ -342,7 +310,7 @@ public class medicalRecord_page extends StartupPage {
 	}
 
 	/**
-	 * @Test13 about this method verifyDiagnosisAddedCheckboxFunctionality()
+	 * @Test11 about this method verifyDiagnosisAddedCheckboxFunctionality()
 	 * 
 	 * @param diagCode               : String - The diagnosis code to be selected
 	 *                               and filtered.
@@ -362,7 +330,7 @@ public class medicalRecord_page extends StartupPage {
 	}
 
 	/**
-	 * @Test14.2 about this method
+	 * @Test12.2 about this method
 	 * clickAddFinalDiadnosisAndVerifyModalOpensAndCloseIt()
 	 * 
 	 * @param null
@@ -376,124 +344,6 @@ public class medicalRecord_page extends StartupPage {
 	public boolean clickAddFinalDiadnosisAndVerifyModalOpensAndCloseIt() throws Exception {
 		return false;
 		
-	}
-
-	/**
-	 * @Test15.2 about this method
-	 * clickEditFinalDiadnosisAndVerifyModalOpensAndCloseIt()
-	 * 
-	 * @param null
-	 * @description : This method clicks on the Edit Diadnosis button, verifies that
-	 *              the Edit Final Diagnosis modal is open and closes it
-	 * @return : boolean - Returns true if the modal is visible and false if it is
-	 *         not
-	 * @throws : Exception - If there is an issue finding the button or the modal
-	 * @author : YAKSHA
-	 */
-	public boolean clickEditFinalDiadnosisAndVerifyModalOpensAndCloseIt() throws Exception {
-		return false;
-	}
-
-	/**
-	 * @Test16 about this method createMROutpatientRecordForPatient()
-	 * 
-	 * @param medicalRecordExpectedData : Map<String, String> - Contains patient
-	 *                                  details such as first name, last name, age,
-	 *                                  gender, doctor, and department.
-	 * @description : This method creates an MR Outpatient record for a patient and
-	 *              verifies if the patient's details, including the doctor and
-	 *              department, are correctly reflected in the MR Outpatient list.
-	 * @return : boolean - Returns true if the patient is successfully created and
-	 *         visible in the outpatient list, otherwise false.
-	 * @throws : Exception - If any step in the process fails, an exception is
-	 *           thrown.
-	 * @author : YAKSHA
-	 */
-	public boolean createMROutpatientRecordForPatient(Map<String, String> medicalRecordExpectedData) throws Exception {
-		return false;
-	}
-
-	/**
-	 * @Test17 about this method verifyTooltipAndtext()
-	 * 
-	 * @param : null
-	 * @description : This method verifies tooltip and the text after hovers
-	 * @return : boolean - true if successfully hover and verify the text present
-	 * @throws : Exception - if there is an issue while finding star tooltip
-	 * @author : YAKSHA
-	 * @return
-	 */
-
-	public String verifyToolTipText() throws Exception {
-
-				return null;
-	}
-
-	/**
-	 * @Test18 about this method verifyAlertMessageWithoutFillingAnyDetails()
-	 * 
-	 * @param medicalRecordExpectedData - A map containing the expected warning
-	 *                                  message.
-	 * @description : This method verifies that an alert message is displayed when
-	 *              trying to submit a birth certificate without filling any
-	 *              details.
-	 * @return : String - The warning message displayed in the alert.
-	 * @throws : Exception - If there is an issue finding or interacting with
-	 *           elements.
-	 * @author : YAKSHA
-	 */
-	public String verifyAlertMessageWithoutFillingAnyDetails(Map<String, String> medicalRecordExpectedData) {
-				return null;
-	}
-
-	/**
-	 * @Test19 about this method verifyThePresenceOfCertificateButton()
-	 * 
-	 * @param patientName - The name of the patient for whom to verify the
-	 *                    certificate button.
-	 * @description : This method verifies the presence of the certificate button
-	 *              for the specified patient and checks if the birth certificate
-	 *              modal is displayed.
-	 * @return : boolean - Returns true if the birth certificate modal is displayed,
-	 *         otherwise false.
-	 * @throws : Exception - If there is an issue finding or interacting with
-	 *           elements, a meaningful error message is thrown.
-	 * @author : YAKSHA
-	 */
-	public boolean verifyThePresenceOfCertificateButton(String patientName) throws Exception {
-				return false;
-	}
-
-	/**
-	 * @Test20 about this method verifyBirthListTableOnAddBirthDetailsModal()
-	 * 
-	 * @param patientName - The name of the patient to search in the Birth List
-	 *                    table.
-	 * @description : This method verifies the presence of the Birth List table on
-	 *              the Add Birth Details modal.
-	 * @return : boolean - Returns true if the Birth List table is present,
-	 *         otherwise false.
-	 * @throws : Exception - If there is an issue finding or interacting with
-	 *           elements, a meaningful error message is thrown.
-	 * @author : YAKSHA
-	 */
-	public boolean verifyBirthListTableOnAddBirthDetailsModal(String patientName) throws Exception {
-		return false;
-	}
-
-	/**
-	 * @Test21 about this method verifyFileDownloaded()
-	 * 
-	 * @param partialFileName - The partial name of the file to check for download.
-	 * @description : This method verifies if a file with the specified partial name
-	 *              has been downloaded.
-	 * @return boolean - true if the file is found, otherwise false.
-	 * @throws InterruptedException - if the thread is interrupted while waiting for
-	 *                              the file to download.
-	 * @author : YAKSHA
-	 */
-	public boolean verifyFileDownloaded(String partialFileName) throws InterruptedException {
-		return false;
 	}
 
 }
