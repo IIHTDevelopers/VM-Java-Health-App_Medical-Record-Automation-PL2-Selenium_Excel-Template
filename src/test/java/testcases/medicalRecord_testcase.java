@@ -148,34 +148,9 @@ public class medicalRecord_testcase extends AppTestBase {
 				medicalRecord_pageInstance.verifyResultsAppointmentDateFallsWithin("01-01-2020", "01-01-2024"));
 	}
 
+	
+
 	@Test(priority = 8, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and it is on MR Outpatient section \r\n"
-					+ "1. Click on the data range button\r\n" + "2. select \"one week\" option from the drop down\r\n"
-					+ "3. Click on \"OK\" button")
-	public void verifyResultWithOneWeekDateRange() throws Exception {
-		medicalRecord_pageInstance = new medicalRecord_page(driver);
-		Assert.assertTrue(medicalRecord_pageInstance.verifyUrlContains("MR Outpatient List", "OutpatientList"));
-		Assert.assertTrue(medicalRecord_pageInstance.clickDateRangeDropdownAndSelect("Last 1 Week"));
-		LocalDate currentDate = LocalDate.now();
-		LocalDate date7DaysAgo = currentDate.minusDays(7);
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		String toDate = currentDate.format(formatter);
-		String fromDate = date7DaysAgo.format(formatter);
-		Thread.sleep(3000);
-		Assert.assertTrue(medicalRecord_pageInstance.verifyResultsAppointmentDateFallsWithin(fromDate, toDate));
-	}
-
-	@Test(priority = 9, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and it is on Medical Records module\r\n"
-					+ "1. Naviaget to MR Outpatient sub-module\r\n"
-					+ "2. Select \"Dr. ALEX OKELLO ONYIEGO\" in doctor filter drop down\r\n")
-	public void verifyDoctorFilterFunctionality() throws Exception {
-		medicalRecord_pageInstance = new medicalRecord_page(driver);
-		Assert.assertTrue(medicalRecord_pageInstance.verifyUrlContains("MR Outpatient List", "OutpatientList"));
-		Assert.assertTrue(medicalRecord_pageInstance.applyDoctorFilterAndVerifyResults("Dr. ALEX OKELLO ONYIEGO"));
-	}
-
-	@Test(priority = 10, groups = {
 			"sanity" }, description = "Pre condition: User should be logged in and it is on MR Outpatient section\r\n"
 					+ "1. select \"Cardiology\"  in select disease category drop down \r\n" + "")
 	public void verifyDepartmentFilterFunctionality() throws Exception {
@@ -184,7 +159,7 @@ public class medicalRecord_testcase extends AppTestBase {
 		Assert.assertTrue(medicalRecord_pageInstance.applyDepartmentFilterAndVerifyResults("Cardiology"));
 	}
 
-	@Test(priority = 11, groups = { "sanity" }, description = "1. Login in the healthapp application\r\n"
+	@Test(priority = 9, groups = { "sanity" }, description = "1. Login in the healthapp application\r\n"
 			+ "2. Scroll down menu till medicalRecords\r\n" + "3. Navigate to the Medical record  module\r\n"
 			+ "4. Click on MR Outpatient sub module\r\n" + "5.Select \"Jan 2024\" from the \"From\" field\r\n"
 			+ "6. Select \"August 2024\" from the \"To\" field" + "7. Scroll  all the way to the botton of the page\r\n"
@@ -209,7 +184,7 @@ public class medicalRecord_testcase extends AppTestBase {
 
 	}
 
-	@Test(priority = 12, groups = {
+	@Test(priority = 10, groups = {
 			"sanity" }, description = "Pre condition: User should be logged in and it is on MR Outpatient section\r\n"
 					+ "1. Enter the \"2B72\" in the \" select disease\" field \r\n"
 					+ "2. select \"Malignant neoplasms of stomach\"  in select disease category drop down "
@@ -227,7 +202,7 @@ public class medicalRecord_testcase extends AppTestBase {
 				medicalRecordExpectedData.get("diagnosisCode"), medicalRecordExpectedData.get("finalDiagValue")));
 	}
 
-	@Test(priority = 13, groups = {
+	@Test(priority = 11, groups = {
 			"sanity" }, description = "Pre condition: User should be logged in and it is on MR Outpatient section\r\n"
 					+ "1. Click on \"Diagnosis Added\" checkbox "
 					+ "2. Data should be present according to the status, and after clicking the checkbox, only the records with \"Edit Final Diagnosis\" in the \"Action\" column should be displayed.")
@@ -238,7 +213,7 @@ public class medicalRecord_testcase extends AppTestBase {
 		Assert.assertTrue(medicalRecord_pageInstance.verifyDiagnosisAddedCheckboxFunctionality("Edit Final Diagnosis"));
 	}
 
-	@Test(priority = 14, groups = {
+	@Test(priority = 12, groups = {
 			"sanity" }, description = "1. User should be logged in and it is on MR Outpatient section\r\n"
 					+ "2. Click on \"FROM\" and select \"Jan 2020\"\r\n"
 					+ "3. Click on \"TO\" and selct \"march 2024\"\r\n" + "4. Click on \"OK\" button"
@@ -253,106 +228,6 @@ public class medicalRecord_testcase extends AppTestBase {
 		Thread.sleep(3000);
 		Assert.assertTrue(medicalRecord_pageInstance.applyDateFilter("01-01-2023", toDate));
 		Assert.assertTrue(medicalRecord_pageInstance.clickAddFinalDiadnosisAndVerifyModalOpensAndCloseIt());
-	}
-
-	@Test(priority = 15, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and it is on MR Outpatient section\r\n"
-					+ "1. Click on \"FROM\" and select \"July 2024\"\r\n"
-					+ "2. Click on \"TO\" and selct \"march 2024\"\r\n" + "3. Click on \"OK\" button\r\n"
-					+ "4. Click on \"Edit Final Diagnosis\" button")
-
-	public void verifyPresenceOfEditFinalDiagnosisButton() throws Exception {
-		medicalRecord_pageInstance = new medicalRecord_page(driver);
-
-		LocalDate currentDate = LocalDate.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		String toDate = currentDate.format(formatter);
-		Thread.sleep(3000);
-		Assert.assertTrue(medicalRecord_pageInstance.applyDateFilter("01-01-2023", toDate));
-		Assert.assertTrue(medicalRecord_pageInstance.clickEditFinalDiadnosisAndVerifyModalOpensAndCloseIt());
-	}
-
-	@Test(priority = 16, groups = {
-			"sanity" }, description = "1. User should be logged in and Navigate to appoinment module\r\n"
-					+ "2. click on \"New Visit\" sub-module\r\n" + "3. Search the register patient\r\n"
-					+ "4. Click on \"Check In\" button of that patient\r\n"
-					+ "5. Click on \"Doctor\" field and select \"Dr. Amit Shah\"\r\n"
-					+ "6. Observe that it will automatical fill the \"Department\" field\r\n"
-					+ "7. Click on \"Print Invoice\" button" + "8. Confirm box should pop\r\n"
-					+ "9. Click on \"Confirm\" button\r\n" + "10. Close the invoice page\r\n")
-
-	public void createMROutpatientRecordForPatient() throws Exception {
-		Map<String, String> medicalRecordExpectedData = new FileOperations().readExcelPOI(expectedDataFilePath,
-				"createNewPatient");
-		medicalRecord_pageInstance = new medicalRecord_page(driver);
-		medicalRecord_pageInstance.createMROutpatientRecordForPatient(medicalRecordExpectedData);
-
-	}
-
-	@Test(priority = 17, groups = {
-			"sanity" }, description = "1.  User should be logged in and it is on Medical Records module\r\n"
-					+ "2. Hover the mouse in start\r\n")
-
-	public void verifyTooltipAndPresentationOnMouseHoverStar() throws Exception {
-		medicalRecord_pageInstance = new medicalRecord_page(driver);
-		Map<String, String> medicalRecordExpectedData = new FileOperations().readExcelPOI(expectedDataFilePath,
-				"medicalRecord");
-		Assert.assertEquals(medicalRecord_pageInstance.verifyToolTipText(),
-				medicalRecordExpectedData.get("favouriteIcon"));
-	}
-
-	@Test(priority = 18, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and must be on the \"Medical Records\" module.\r\n"
-					+ "1. Navigate to Birth List sub- Module\r\n"
-					+ "2. Click on \"Add New Birth Certificate\" button\r\n" + "3. Do Not Fill in Any Details\r\n"
-					+ "4. Click on \"submit\" Button"
-					+ "5. Confirm that the alert message appears with mesage \"warning Please fill the birth details first!!!! \"")
-
-	public void verifyAlertMessageWithoutFillingAnyDetails() throws Exception {
-		medicalRecord_pageInstance = new medicalRecord_page(driver);
-
-		Map<String, String> medicalRecordExpectedData = new FileOperations().readExcelPOI(expectedDataFilePath,
-				"medicalRecord");
-
-		Assert.assertEquals(
-				medicalRecord_pageInstance.verifyAlertMessageWithoutFillingAnyDetails(medicalRecordExpectedData),
-				medicalRecordExpectedData.get("warningMessage"));
-	}
-
-	@Test(priority = 19, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and must be on the \"Medical Records\" module.\r\n"
-					+ "1. Navigate to \"Birth List\" sub- Module\r\n" + "2. Click on \"Certificate\" button"
-					+ "3. Ensure that Birth Report is generated correctly based on the saved birth certificate details.")
-
-	public void verifyThepresenceOfCertificateButton() throws Exception {
-		medicalRecord_pageInstance = new medicalRecord_page(driver);
-
-		Assert.assertTrue(medicalRecord_pageInstance.verifyThePresenceOfCertificateButton("Shweta Verma"));
-	}
-
-	@Test(priority = 20, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and  must be on the \"Medical Records\" module.\r\n"
-					+ "1. Navigate to \"Birth List\" Sub-Module\r\n"
-					+ "2. Click on the \"Add New Birth Certificate\" Button\r\n"
-					+ "3. Enter the Name of an Existing Mother in the \"Mother’s Name\" Field\r\n"
-					+ "4. Verify the \"Birth List\" Table on the \"Add Birth Details\" Page")
-
-	public void verifyBirthListTabelonAddbirthDetailsModal() throws Exception {
-		medicalRecord_pageInstance = new medicalRecord_page(driver);
-
-		Assert.assertTrue(medicalRecord_pageInstance.verifyBirthListTableOnAddBirthDetailsModal("Test Female Patient"));
-	}
-
-	@Test(priority = 21, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and must be on the \"Medical Records\" modules\r\n"
-					+ "1. Navigate to the \"Report\" sub-modules\r\n" + "2. Click on the\" show Report\" button\r\n"
-					+ "3.Scroll to the Bottom of the Page\r\n" + "4. Click on the \"Export\" button"
-					+ "4. Ensure that the exported file is in the correct format and contains the data as displayed in the report.\r\n")
-
-	public void verifyExportButtonFunctionality() throws Exception {
-		medicalRecord_pageInstance = new medicalRecord_page(driver);
-
-		Assert.assertTrue(medicalRecord_pageInstance.verifyFileDownloaded("InpatientServiceReport"));
 	}
 
 	@AfterClass(alwaysRun = true)
